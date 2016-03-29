@@ -49,4 +49,4 @@ class SignUpView(generics.CreateAPIView):
             return Response(status=HTTP_201_CREATED, data=UserSerializer(user).data)
 
         # Handle creation error (e.g. username already exists, password mismatch).
-        return Response(status=HTTP_400_BAD_REQUEST)
+        return Response(status=HTTP_400_BAD_REQUEST, data=serializer.errors)
